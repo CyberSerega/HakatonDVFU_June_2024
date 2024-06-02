@@ -15,8 +15,8 @@ class Text2ImageAPI:
     def __init__(self, url):
         self.URL = url
         self.AUTH_HEADERS = {
-            'X-Key': 'Key YOUR_KEY',
-            'X-Secret': 'Secret YOUR_SECRET_KEY',
+            'X-Key': 'Key ВАШ_КЛЮЧ',
+            'X-Secret': 'Secret ВАШ_КЛЮЧ',
         }
 
     def get_model(self):
@@ -56,10 +56,10 @@ class Text2ImageAPI:
 
 
 
-def gen(prom, dirr = "res"):
+def generate_image(prom, name, dirr = "res", width=1024, height=1024, images=1):
     api = Text2ImageAPI('https://api-key.fusionbrain.ai/')
     model_id = api.get_model()
-    uuid = api.generate(prom, model_id)
+    uuid = api.generate(prom, model_id, images=images, width=width, height=height)
     images = api.check_generation(uuid)    
 
     # Здесь image_base64 - это строка с данными изображения в формате base64
@@ -70,13 +70,13 @@ def gen(prom, dirr = "res"):
 
     # Открываем файл для записи бинарных данных изображения
     try:
-        with open(f"{dirr}/{prom.split('.')[0]} _ {r(0, 100000)}.jpg", "wb") as file:
+        with open(f"{dirr}/{name}.jpg", "wb") as file:
             file.write(image_data)
     except:
-        with open(f"{dirr}/{prom.split('.')[0]} _ {r(0, 100000)}.jpg", "w+") as file:
+        with open(f"{dirr}/{name}.jpg", "w+") as file:
             file.write(image_data)
     print('Картинка создана')
-gen("Фоновая картинка без текста в стиле 'Правила управления рабочим временем'")
+
 
 '''генерация нескольких картинок
 while 1:
