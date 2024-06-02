@@ -7,12 +7,10 @@
   <li>Установить python версии 3.10, pip 23.0.1</li>
   <li>Затем необходимо установить необходимые библиотеки:
       <ul>
-        <li>python-pptx</li>
         <li>spacy</li>
         <li>python -m spacy download ru_core_news_sm</li>
         <li>python-pptx 0.6.23</li>
         <li>qrcode</li>
-        <li>imagecolor</li>
         <li>customtkinter 5.2.2</li>
         <li>colorthief 0.2.1</li>
       </ul>
