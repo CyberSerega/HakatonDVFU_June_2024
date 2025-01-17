@@ -76,20 +76,3 @@ def generate_image(prom, name, dirr = "res", width=1024, height=1024, images=1):
         with open(f"{dirr}/{name}.jpg", "w+") as file:
             file.write(image_data)
     print('Картинка создана')
-
-
-'''генерация нескольких картинок
-while 1:
-    i = input("prompt: ")
-    
-    try:
-        os.mkdir(os.getcwd().replace("\\", "/") + f'/' + zapros.replace("\n", " ").split(".")[0])
-    except FileExistsError:
-        print('exist')
-            
-    for j in range(4):
-        gen(zapros.replace("\n", " "), zapros.replace("\n", " ").split(".")[0])
-        print(f"сделано {j+1}")
-
-    
-    print("завершено")'''
